@@ -28,86 +28,93 @@
             class="img-fluid"
             alt="Helado de Frutilla a la Crema"
           />
-          
-              <form class="container mt-5">
-                <div class="mb-3">
-                  <label for="factor" class="form-label">Factor:
-                  <input
-                    type="number"
-                    step="1"
-                    min="1"
-                    class="form-control"
-                    id="factor"
-                    value="1"
-                    maxlength="5"
-                  />
-                    </label>
-                </div>
-              </form>
         </div>
         <div class="col-md-6">
           <h2>Ingredientes:</h2>
           <ul>
             <li>
               <span class="item">Frutillas: </span
-              ><span class="refresh" defvalue="180">xxxx</span> gr. sin tallos
+              ><span defvalue="180">xxxx</span> gr. lavadas, secas y sin tallos
             </li>
             <li>
               <span class="item">Azúcar: </span
-              ><span class="refresh" defvalue="130">xxxx</span> gr.
+              ><span defvalue="130">xxxx</span> gr.
             </li>
             <li>
-              <span class="item">Sal: </span
-              ><span class="refresh" defvalue="25">xxxx</span>% de cucharadita
+              <span class="item">Sal: </span><span defvalue="25">xxxx</span>% de
+              cucharadita
             </li>
             <li>
               <span class="item">Esencia de vainilla: </span
-              ><span class="refresh" defvalue="1">xxxx</span> cucharada/s
+              ><span defvalue="1">xxxx</span> cucharada/s
             </li>
             <li>
               <span class="item">Yema/s de huevo: </span
-              ><span class="refresh" defvalue="1">xxxx</span>
+              ><span defvalue="1">xxxx</span>
             </li>
             <li>
               <span class="item">Jugo de limón: </span
-              ><span class="refresh" defvalue="1">xxxx</span> cucharadita/s
+              ><span defvalue="1">xxxx</span> cucharadita/s
             </li>
             <li>
               <span class="item">Crema de leche: </span
-              ><span class="refresh" defvalue="70">xxxx</span> gr.
+              ><span defvalue="70">xxxx</span> gr.
             </li>
             <li>
               <span class="item">Leche entera: </span
-              ><span class="refresh" defvalue="180">xxxx</span> gr.
+              ><span defvalue="180">xxxx</span> gr.
             </li>
           </ul>
           <h2>Preparación:</h2>
           <ol>
             <li>
-              In a large mixing bowl, whisk together the cream, milk, sugar, and
-              vanilla extract until the sugar is dissolved.
+              Retire los tallos de las fresas hasta obtener
+              <span defvalue="180"></span> gr. de pura frutilla
             </li>
             <li>
-              Pour the mixture into an ice cream maker and churn according to
-              the manufacturer's instructions.
+              Licuar en un bowl hasta dejar bien unidos y disueltos:
+              <ul>
+                <li>las frutillas</li>
+                <li>la/s yema/s de huevo</li>
+                <li>el azúcar</li>
+                <li>la sal</li>
+                <li>el jugo de limón</li>
+              </ul>
+            </li>
+            <li>Agregar la leche e integrar completamente.</li>
+            <li>Agregar la crema y la leche, y revolver.</li>
+            <li>
+              Permita que la mezcla se enfríe a la temperatura del refrigerador.
             </li>
             <li>
-              Transfer the churned ice cream to a container and freeze for at
-              least 2 hours before serving.
+              Verter en la maquina de helados y dejar congelar durante unos 30
+              minutos.
             </li>
+            <li>Póngalo en el congelador por 20 minutos.</li>
           </ol>
         </div>
       </div>
     </div>
-    <footer class="bg-secondary py-3">
+    <footer class="footer sticky-footer bg-secondary py-3">
       <div class="container">
+        <form>
+          <span>Factor:</span>
+          <input
+            type="number"
+            step="1"
+            min="1"
+            class="form-control"
+            id="factor"
+            value="1"
+          />
+        </form>
         <p class="text-white mb-0">&copy; 2023 Ice Cream Recipes</p>
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
     <script>
       function updateRefreshTags() {
-        const refreshTags = document.querySelectorAll(".refresh[defvalue]");
+        const refreshTags = document.querySelectorAll("span[defvalue]");
         for (let i = 0; i < refreshTags.length; i++) {
           const refreshTag = refreshTags[i];
           const defvalue = parseFloat(refreshTag.getAttribute("defvalue"));
@@ -123,10 +130,16 @@
 
       const factorInput = document.getElementById("factor");
 
-      factorInput.addEventListener("change", function (event) {
+      // factorInput.addEventListener("change", function (event) {
+      //   factor = parseFloat(event.target.value);
+      //   updateRefreshTags();
+      // });
+
+      document.getElementById("factor").oninput = () => {
         factor = parseFloat(event.target.value);
+        if (isNaN(factor)) factor = 1;
         updateRefreshTags();
-      });
+      };
     </script>
   </body>
 </html>
