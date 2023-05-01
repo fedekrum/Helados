@@ -62,7 +62,11 @@
   for (let i = 0; i < refreshTags.length; i++) {
     const refreshTag = refreshTags[i];
     const defvalue = parseFloat(refreshTag.getAttribute('defvalue'));
-    refreshTag.textContent = (defvalue * factor).toFixed(2);
+    if (Number.isInteger(defvalue * factor)) {
+      refreshTag.textContent = (defvalue * factor).toFixed(0);
+    } else {
+      refreshTag.textContent = (defvalue * factor).toFixed(2);
+    }
   }
 }
     factor = 2;
