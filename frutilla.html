@@ -47,5 +47,18 @@
     </div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+  <script>
+  function updateRefreshTags() {
+  const refreshTags = document.querySelectorAll('.refresh[defvalue]');
+  for (let i = 0; i < refreshTags.length; i++) {
+    const refreshTag = refreshTags[i];
+    const defvalue = parseFloat(refreshTag.getAttribute('defvalue'));
+    refreshTag.textContent = (defvalue * factor).toFixed(2);
+  }
+}
+    updateRefreshTags();
+  </script>
+  
+
 </body>
 </html>
