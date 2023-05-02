@@ -14,6 +14,7 @@
       }
     </style>
   </head>
+
   <body>
     <header class="bg-primary py-3">
       <div class="container">
@@ -34,42 +35,52 @@
           <ul>
             <li>
               <span class="item">Frutillas: </span
-              ><span defvalue="180">xxxx</span> gr. lavadas, secas y sin tallos
+              ><span data-defvalue="180">xxxx</span> gr. lavadas, escurridas y
+              sin tallos
             </li>
             <li>
               <span class="item">Azúcar: </span
-              ><span defvalue="130">xxxx</span> gr.
+              ><span data-defvalue="130">xxxx</span> gr.
             </li>
             <li>
-              <span class="item">Sal: </span><span defvalue="25">xxxx</span>% de
-              cucharadita
+              <span class="item">Sal: </span
+              ><span data-defvalue="25">xxxx</span>% de cucharadita
             </li>
             <li>
               <span class="item">Esencia de vainilla: </span
-              ><span defvalue="1">xxxx</span> cucharada/s
+              ><span data-defvalue="1">xxxx</span> cucharada/s
             </li>
             <li>
               <span class="item">Yema/s de huevo: </span
-              ><span defvalue="1">xxxx</span>
+              ><span data-defvalue="1">xxxx</span>
             </li>
             <li>
               <span class="item">Jugo de limón: </span
-              ><span defvalue="1">xxxx</span> cucharadita/s
+              ><span data-defvalue="1">xxxx</span> cucharadita/s
             </li>
             <li>
               <span class="item">Crema de leche: </span
-              ><span defvalue="70">xxxx</span> gr.
+              ><span data-defvalue="70">xxxx</span> gr.
             </li>
             <li>
               <span class="item">Leche entera: </span
-              ><span defvalue="180">xxxx</span> gr.
+              ><span data-defvalue="180">xxxx</span> gr.
             </li>
           </ul>
+          <h2>Preparativos previos:</h2>
+          <ol>
+            <li>Poner el freezer en su temperatura mas baja.</li>
+            <li>
+              Enfriar el bowl de la maquina de helados por 8 horas en el
+              freezer.
+            </li>
+            <li>Poner el refrigerador a +2 grados</li>
+          </ol>
           <h2>Preparación:</h2>
           <ol>
             <li>
               Retire los tallos de las fresas hasta obtener
-              <span defvalue="180"></span> gr. de pura frutilla
+              <span data-defvalue="180"></span> gr. de pura frutilla
             </li>
             <li>
               Licuar en un bowl hasta dejar bien unidos y disueltos:
@@ -96,28 +107,30 @@
       </div>
     </div>
     <footer class="footer sticky-footer bg-secondary py-3">
-      <div class="container">
-        <form>
-          <span>Factor:</span>
+      <div class="container mb-0 d-inline-block">
+        <form class="d-inline-block">
+          <span class="d-inline-block">Factor:</span>
           <input
             type="number"
             step="1"
             min="1"
-            class="form-control"
+            class="form-control d-inline-block"
             id="factor"
             value="1"
           />
         </form>
-        <p class="text-white mb-0">&copy; 2023 Ice Cream Recipes</p>
+        <p class="text-white mb-0 d-inline-block float-end">
+          &copy; 2023 Ice Cream Recipes
+        </p>
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
     <script>
       function updateRefreshTags() {
-        const refreshTags = document.querySelectorAll("span[defvalue]");
+        const refreshTags = document.querySelectorAll("span[data-defvalue]");
         for (let i = 0; i < refreshTags.length; i++) {
           const refreshTag = refreshTags[i];
-          const defvalue = parseFloat(refreshTag.getAttribute("defvalue"));
+          const defvalue = parseFloat(refreshTag.getAttribute("data-defvalue"));
           if (Number.isInteger(defvalue * factor)) {
             refreshTag.textContent = (defvalue * factor).toFixed(0);
           } else {
@@ -127,13 +140,6 @@
       }
       let factor = 1;
       updateRefreshTags();
-
-      const factorInput = document.getElementById("factor");
-
-      // factorInput.addEventListener("change", function (event) {
-      //   factor = parseFloat(event.target.value);
-      //   updateRefreshTags();
-      // });
 
       document.getElementById("factor").oninput = () => {
         factor = parseFloat(event.target.value);
