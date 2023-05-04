@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Helado de Frutilla a la Crema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
+    />
+    <style>
+      #factor {
+        width: 100px;
+      }
+    </style>
+    <meta
+      property="og:image"
+      content="https://fedekrum.github.io/Helados/images/banana.jpg"
+    />
+    <meta property="og:title" content="Helado de Banana" />
+    <meta
+      property="og:description"
+      content="Las frutillas frescas hacen que esta receta de helado explote de sabor."
+    />
+    <meta
+      property="og:url"
+      content="https://fedekrum.github.io/Helados/banana.html"
+    />
+  </head>
+
+  <body>
+    <header class="bg-primary py-3">
+      <div class="container">
+        <a href="/"
+          ><img
+            src="images/logo.png"
+            alt="..."
+            width="50"
+            style="margin-top: -25px"
+          />
+        </a>
+        <h1 id="title" class="text-white d-inline-block">Helado de Banana</h1>
+      </div>
+    </header>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="images/banana_split.jpg"
+            class="img-fluid"
+            alt="Helado de Frutilla a la Crema"
+          />
+        </div>
+        <div class="col-md-6">
+          <h2>Ingredientes:</h2>
+          <ul>
+            <li>
+              <span class="item">Bananas: </span
+              ><span data-defvalue="220">xxxx</span> g peladas
+            </li>
+            <li>
+              <span class="item">Azúcar: </span
+              ><span data-defvalue="100">xxxx</span> g
+            </li>
+            <li>
+              <span class="item">Sal: </span
+              ><span data-defvalue="25">xxxx</span>% de cucharadita
+            </li>
+            <li>
+              <span class="item">Esencia de vainilla: </span
+              ><span data-defvalue="1">xxxx</span> cucharada/s
+            </li>
+            <li>
+              <span class="item">Yema/s de huevo: </span
+              ><span data-defvalue="1">xxxx</span>
+            </li>
+            <li>
+              <span class="item">Jugo de limón: </span
+              ><span data-defvalue="1">xxxx</span> cucharadita/s
+            </li>
+            <li>
+              <span class="item">Crema de leche: </span
+              ><span data-defvalue="70">xxxx</span> g
+            </li>
+            <li>
+              <span class="item">Leche entera: </span
+              ><span data-defvalue="170">xxxx</span> g
+            </li>
+          </ul>
+          <h2>Preparativos previos:</h2>
+          <ol>
+            <li>Poner el freezer en su temperatura mas baja.</li>
+            <li>
+              Enfriar el bowl de la maquina de helados por 8 horas en el
+              freezer.
+            </li>
+            <li>Poner el refrigerador a +2 grados</li>
+          </ol>
+          <h2>Preparación:</h2>
+          <ol>
+            <li>
+              Pelar y revanar las bananas hasta obtener
+              <span data-defvalue="220"></span> g
+            </li>
+            <li>
+              Licuar en un bowl hasta dejar bien unidos y disueltos:
+              <ul>
+                <li>las bananas (<span data-defvalue="220">xxxx</span> g)</li>
+                <li>
+                  la/s yema/s de huevo (<span data-defvalue="1">xxxx</span>)
+                </li>
+                <li>el azúcar (<span data-defvalue="100">xxxx</span> g)</li>
+                <li>
+                  la sal(<span data-defvalue="25">xxxx</span>% de cucharadita)
+                </li>
+                <li>
+                  el jugo de limón (<span data-defvalue="1">xxxx</span>
+                  cucharadita/s)
+                </li>
+                <li>
+                  la esencia de vainilla (<span data-defvalue="1">xxxx</span>
+                  cucharada/s)
+                </li>
+              </ul>
+            </li>
+            <li>
+              Agregar la crema (<span data-defvalue="70">xxxx</span> g), la
+              leche (<span data-defvalue="170">xxxx</span> g), y revolver hasta
+              integrar.
+            </li>
+            <li>
+              Permita que la mezcla se enfríe a la temperatura del refrigerador.
+            </li>
+            <li>
+              Revolver y verter en la maquina de helados. Procesar durante 30
+              minutos.
+            </li>
+            <li>Póngalo en el freezer por 20 minutos.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <footer class="footer sticky-footer bg-secondary py-3">
+      <div class="container mb-0 d-inline-block">
+        <form class="d-inline-block">
+          <span class="d-inline-block">Factor:</span>
+          <input
+            type="number"
+            step="1"
+            min="1"
+            class="form-control d-inline-block"
+            id="factor"
+            value="1"
+          />
+        </form>
+        <p class="text-white mb-0 d-inline-block float-end">
+          &copy; 2023 Federico Krum y la web !!
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+    <script>
+      function updateRefreshTags() {
+        const refreshTags = document.querySelectorAll("span[data-defvalue]");
+        for (let i = 0; i < refreshTags.length; i++) {
+          const refreshTag = refreshTags[i];
+          const defvalue = parseFloat(refreshTag.getAttribute("data-defvalue"));
+          if (Number.isInteger(defvalue * factor)) {
+            refreshTag.textContent = (defvalue * factor).toFixed(0);
+          } else {
+            refreshTag.textContent = (defvalue * factor).toFixed(2);
+          }
+        }
+      }
+      let factor = 1;
+      updateRefreshTags();
+
+      document.getElementById("factor").oninput = () => {
+        factor = parseFloat(event.target.value);
+        if (isNaN(factor)) factor = 1;
+        updateRefreshTags();
+      };
+    </script>
+  </body>
+</html>
