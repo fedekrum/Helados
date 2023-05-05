@@ -1,0 +1,38 @@
+{
+  "crema_americana": {
+    "titulo":"Crema Americana",
+    "pie":""
+  },
+  "vainilla": {
+    "titulo":"Vainilla",
+    "pie":""
+  },
+  "chocolate": {
+    "titulo":"Chocolate",
+    "pie":""
+  },
+  "frutilla": {
+    "titulo":"Frutilla",
+    "pie":""
+  },
+  "naranja": {
+    "titulo":"Naranja",
+    "pie":""
+  },
+  "limon": {
+    "titulo":"Limon",
+    "pie":""
+  },
+  "tramontana": {
+    "titulo":"Tramontana",
+    "pie":""
+  },
+  "cerezas": {
+    "titulo":"Cerezas",
+    "pie":""
+  },
+  "banana": {
+    "titulo":"Banana",
+    "pie":""
+  }
+}

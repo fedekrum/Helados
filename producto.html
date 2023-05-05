@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
+    />
+    <style>
+      #factor {
+        width: 100px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+    <meta property="og:image" content="/Helados/fotos/banana.jpg" />
+    <meta property="og:title" content="Helado de Banana" />
+    <meta
+      property="og:description"
+      content="Las frutillas frescas hacen que esta receta de helado explote de sabor."
+    />
+    <meta property="og:url" content="/Helados/banana.html" />
+  </head>
+
+  <body>
+    <header class="bg-primary py-3">
+      <div class="container">
+        <a href="../"
+          ><img
+            src="fotos/logo.png"
+            alt="..."
+            width="50"
+            style="margin-top: -2%"
+          />
+        </a>
+        <h1 id="titulo" class="text-white d-inline-block ms-3">
+          Error de nombre del helado
+        </h1>
+      </div>
+    </header>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6">
+          <img id="foto" src="" class="img-fluid" alt="" />
+        </div>
+        <div id="receta" class="col-md-6"><h2>Ingredientes:</h2></div>
+      </div>
+    </div>
+    <footer class="footer sticky-footer bg-secondary py-3">
+      <div class="container mb-0 d-inline-block">
+        <form class="d-inline-block">
+          <span class="d-inline-block">Factor:</span>
+          <input
+            type="number"
+            step="1"
+            min="1"
+            class="form-control d-inline-block"
+            id="factor"
+            value="1"
+          />
+        </form>
+        <p class="text-white mb-0 d-inline-block float-end">
+          &copy; 2023 Federico Krum y la web !!
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+    <script>
+      var sabor;
+      var foto;
+      var titulo;
+      var factor = 1;
+
+      function getParam(url = window.location) {
+        // Create a params object
+        let params = {};
+
+        new URL(url).searchParams.forEach(function (val, key) {
+          if (params[key] !== undefined) {
+            if (!Array.isArray(params[key])) {
+              params[key] = [params[key]];
+            }
+            params[key].push(val);
+          } else {
+            params[key] = val;
+          }
+        });
+        for (var prop in params) {
+          return prop;
+        }
+      }
+
+      sabor = getParam();
+      foto = "fotos/" + sabor + ".jpg";
+      document.getElementById("foto").setAttribute("src", foto);
+
+      function reqListenerReceta() {
+        // aca remplazar la receta en el dom
+        document.getElementById("receta").innerHTML = this.responseText;
+        updateRefreshTags();
+        //console.log(this.responseText);
+      }
+
+      const reqReceta = new XMLHttpRequest();
+      reqReceta.addEventListener("load", reqListenerReceta);
+      reqReceta.open("GET", "recetas/" + sabor + ".html?");
+      reqReceta.send();
+
+      function reqListenerTitulos() {
+        // aca remplazar la receta en el dom
+        var data = JSON.parse(this.responseText);
+        document.title = "Helado de " + data[sabor].titulo;
+        document.getElementById("titulo").innerHTML =
+          "Helado de " + data[sabor].titulo;
+        //console.log(data[sabor].titulo);
+      }
+
+      const reqTitulos = new XMLHttpRequest();
+      reqTitulos.addEventListener("load", reqListenerTitulos);
+      reqTitulos.open("GET", "datos.json");
+      reqTitulos.send();
+
+      function updateRefreshTags() {
+        const refreshTags = document.querySelectorAll("span[data-defvalue]");
+        for (let i = 0; i < refreshTags.length; i++) {
+          const refreshTag = refreshTags[i];
+          const defvalue = parseFloat(refreshTag.getAttribute("data-defvalue"));
+          if (Number.isInteger(defvalue * factor)) {
+            refreshTag.textContent = (defvalue * factor).toFixed(0);
+          } else {
+            refreshTag.textContent = (defvalue * factor).toFixed(2);
+          }
+        }
+      }
+
+      document.getElementById("factor").oninput = () => {
+        factor = parseFloat(event.target.value);
+        if (isNaN(factor)) factor = 1;
+        updateRefreshTags();
+      };
+    </script>
+  </body>
+</html>
