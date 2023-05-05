@@ -1,38 +1,38 @@
 {
   "crema_americana": {
     "titulo":"Crema Americana",
-    "pie":""
+    "pie":"La crema base de muchisimos helado. Fundamental para acompañar con frutas frescas, para combinar con chocolate."
   },
   "vainilla": {
     "titulo":"Vainilla",
-    "pie":""
+    "pie":"No tenemos una receta aún."
   },
   "chocolate": {
     "titulo":"Chocolate",
-    "pie":""
+    "pie":"No tenemos una receta aún."
   },
   "frutilla": {
     "titulo":"Frutilla",
-    "pie":""
+    "pie":"Las frutillas frescas hacen que esta receta de helado explote de sabor."
   },
   "naranja": {
     "titulo":"Naranja",
-    "pie":""
+    "pie":"No tenemos una receta aún."
   },
   "limon": {
     "titulo":"Limon",
-    "pie":""
+    "pie":"No tenemos una receta aún."
   },
   "tramontana": {
     "titulo":"Tramontana",
-    "pie":""
+    "pie":"No tenemos una receta aún."
   },
   "cerezas": {
     "titulo":"Cerezas",
-    "pie":""
+    "pie":"No tenemos una receta aún."
   },
   "banana": {
     "titulo":"Banana",
-    "pie":""
+    "pie":"No tenemos una receta aún."
   }
 }
