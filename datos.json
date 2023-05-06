@@ -2,7 +2,7 @@
   "crema_americana": {
     "titulo":"Crema Americana",
     "pie":"La crema base de muchisimos helado. Fundamental para acompañar con frutas frescas, para combinar con chocolate.",
-    "active":false
+    "active":true
   },
   "vainilla": {
     "titulo":"Vainilla",
