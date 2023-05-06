@@ -39,8 +39,8 @@
     "pie":"Que lo pario !! Que manera de comer este sabor de chico.",
     "active":true
   },
-  "banana": {
-    "titulo":"Banana",
+  "banana_o_banana_split": {
+    "titulo":"Banana o Banana-Split",
     "pie":"La primera receta que me da ChatGPT que quedo genial despues de unos pequeños toques",
     "active":true
   }
