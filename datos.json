@@ -11,7 +11,7 @@
   },
   "chocolate": {
     "titulo":"Chocolate",
-    "pie":"El helado de chocolate es un verdadero sueño hecho realidad para los amantes del cacao.",
+    "pie":"Un verdadero sueño hecho realidad para los amantes del cacao.",
     "active":true
   },
   "frutilla": {
@@ -21,7 +21,7 @@
   },
   "naranja": {
     "titulo":"Naranja",
-    "pie":"El helado de naranja es como una pequeña dosis de Valencia en cada cucharada.",
+    "pie":"Una pequeña dosis de Valencia en cada cucharada.",
     "active":true
   },
   "limon": {
@@ -31,7 +31,7 @@
   },
   "tramontana": {
     "titulo":"Tramontana",
-    "pie":"Un clásico argentino que te hace visualizar el obelisco con la primera cucharada",
+    "pie":"Un clásico argentino que te hace visualizar el obelisco con la primer cucharada",
     "active":true
   },
   "cerezas": {
