@@ -5,11 +5,11 @@
   },
   "vainilla": {
     "titulo":"Vainilla",
-    "pie":"No tenemos una receta aún."
+    "pie":"El helado de vainilla es un clásico atemporal que nunca decepciona."
   },
   "chocolate": {
     "titulo":"Chocolate",
-    "pie":"No tenemos una receta aún."
+    "pie":"El helado de chocolate es un verdadero sueño hecho realidad para los amantes del cacao."
   },
   "frutilla": {
     "titulo":"Frutilla",
@@ -17,22 +17,22 @@
   },
   "naranja": {
     "titulo":"Naranja",
-    "pie":"No tenemos una receta aún."
+    "pie":"El helado de naranja es como una pequeña dosis de Valencia en cada cucharada."
   },
   "limon": {
     "titulo":"Limon",
-    "pie":"No tenemos una receta aún."
+    "pie":"Con su sabor dulce y ácido, es perfecto para refrescar los días de verano."
   },
   "tramontana": {
     "titulo":"Tramontana",
-    "pie":"No tenemos una receta aún."
+    "pie":"Un clásico argentino que te hace visualizar el obelisco con la primera cucharada"
   },
   "cerezas": {
     "titulo":"Cerezas",
-    "pie":"No tenemos una receta aún."
+    "pie":"Que lo pario !! Que manera de comer este sabor de chico."
   },
   "banana": {
     "titulo":"Banana",
-    "pie":"No tenemos una receta aún."
+    "pie":"La primera receta que me da ChatGPT que quedo genial despues de unos pequeños toques"
   }
 }
