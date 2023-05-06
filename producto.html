@@ -65,7 +65,7 @@
           />
         </form>
         <p class="text-white mb-0 d-inline-block float-end">
-          &copy; 2023 Federico Krum y la web !!
+          &copy; 2023 Fede Krum (Neo-Heladero)
         </p>
       </div>
     </footer>
@@ -76,6 +76,7 @@
       var titulo;
       var factor = 1;
 
+      // ----- levanta el nombre del primer parametro de la URL que sera el identificador del sabor
       function getParam(url = window.location) {
         // Create a params object
         let params = {};
@@ -94,11 +95,12 @@
           return prop;
         }
       }
-
+      // ----- Asigna los valores
       sabor = getParam();
       foto = "fotos/" + sabor + ".jpg";
       document.getElementById("foto").setAttribute("src", foto);
 
+      // ----- Levanta la receta basado en el nombre
       function reqListenerReceta() {
         if (reqReceta.status === 200) {
           // aca remplazar la receta en el dom
@@ -116,6 +118,7 @@
       reqReceta.open("GET", "recetas/" + sabor + ".html?");
       reqReceta.send();
 
+      // ----- Levanta los datos de los sabores disponibles
       function reqListenerTitulos() {
         // aca remplazar la receta en el dom
         var data = JSON.parse(this.responseText);
@@ -130,6 +133,7 @@
       reqTitulos.open("GET", "datos.json");
       reqTitulos.send();
 
+      // ----- Refresca la pagina con las proporciones nuevas
       function updateRefreshTags() {
         const refreshTags = document.querySelectorAll("span[data-defvalue]");
         for (let i = 0; i < refreshTags.length; i++) {
@@ -143,6 +147,7 @@
         }
       }
 
+      // ----- Esta pendiente de un cambio en el factor
       document.getElementById("factor").oninput = () => {
         factor = parseFloat(event.target.value);
         if (isNaN(factor)) factor = 1;

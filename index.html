@@ -30,140 +30,16 @@
         <h1 class="text-white d-inline-block ms-3">Recetas de Helados</h1>
       </div>
     </header>
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-md-4">
+    <div id="render" class="container py-5" hidden="hidden">
+      <div id="row" class="row">
+        <div id="card" class="col-md-4">
           <div class="card">
-            <img
-              src="fotos/crema_americana.jpg"
-              class="card-img-top"
-              alt="..."
-            />
+            <a id="link" href="">
+              <img id="foto" src="" class="card-img-top" alt="..." />
+            </a>
             <div class="card-body">
-              <h5 class="card-title">Crema Americana</h5>
-              <p class="card-text">
-                La crema base de muchisimos helado. Fundamental para acompañar
-                con frutas frescas, para combinar con chocolate
-              </p>
-              <a href="producto.html?crema_americana" class="btn btn-primary"
-                >Receta</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="fotos/vainilla.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Vainilla</h5>
-              <p class="card-text">
-                Indulge in this rich and creamy chocolate ice cream recipe that
-                will satisfy any sweet tooth.
-              </p>
-              <a href="producto.html?vainilla" class="btn btn-primary"
-                >Receta</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="fotos/chocolate.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Chocolate</h5>
-              <p class="card-text">
-                This classic vanilla ice cream recipe is easy to make and
-                perfect for hot summer days.
-              </p>
-              <a href="producto.html?chocolate" class="btn btn-primary"
-                >Receta</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="fotos/frutilla.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Frutilla a la Crema</h5>
-              <p class="card-text">
-                Las frutillas frescas hacen que esta receta de helado explote de
-                sabor.
-              </p>
-              <a href="producto.html?frutilla" class="btn btn-primary"
-                >Receta</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="fotos/naranja.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Naranja</h5>
-              <p class="card-text">
-                Indulge in this rich and creamy chocolate ice cream recipe that
-                will satisfy any sweet tooth.
-              </p>
-              <a href="producto.html?naranja" class="btn btn-primary">Receta</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="fotos/limon.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Limon</h5>
-              <p class="card-text">
-                This classic vanilla ice cream recipe is easy to make and
-                perfect for hot summer days.
-              </p>
-              <a href="producto.html?limon" class="btn btn-primary">Receta</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="fotos/tramontana.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Tramontana</h5>
-              <p class="card-text">
-                Las frutillas frescas hacen que esta receta de helado explote de
-                sabor.
-              </p>
-              <a href="producto.html?tramontana" class="btn btn-primary"
-                >Receta</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="fotos/cerezas.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Cerezas</h5>
-              <p class="card-text">
-                Indulge in this rich and creamy chocolate ice cream recipe that
-                will satisfy any sweet tooth.
-              </p>
-              <a href="producto.html?cerezas" class="btn btn-primary">Receta</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="fotos/banana.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Banana</h5>
-              <p class="card-text">
-                This classic vanilla ice cream recipe is easy to make and
-                perfect for hot summer days.
-              </p>
-              <a href="producto.html?banana" class="btn btn-primary">Receta</a>
+              <h5 id="sabor" class="card-title"></h5>
+              <p id="pie" class="card-text"></p>
             </div>
           </div>
         </div>
@@ -171,9 +47,76 @@
     </div>
     <footer class="bg-secondary py-3">
       <div class="container">
-        <p class="text-white mb-0">&copy; 2023 Ice Cream Recipes</p>
+        <p class="text-white mb-0">&copy; 2023 Fede Krum (Neo-Heladero)</p>
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+    <script>
+      var cardHTML = document.getElementById("card").outerHTML;
+      document.getElementById("card").remove();
+      var rawHTML = document.getElementById("row").outerHTML;
+      document.getElementById("row").remove();
+
+      // ----- Levanta los datos de los sabores disponibles
+      function reqListenerSabores() {
+        data = JSON.parse(this.responseText);
+        data = Object.entries(data)
+          .map(([key, value]) => {
+            return { id: key, ...value };
+          })
+          .filter((item) => item.active === true);
+        data = Object.values(data);
+        renderPage(data);
+        //console.log(data);
+      }
+      const reqSabores = new XMLHttpRequest();
+      reqSabores.addEventListener("load", reqListenerSabores);
+      reqSabores.open("GET", "datos.json");
+      reqSabores.send();
+
+      // Renderiza la pagina
+      function renderPage(data) {
+        var rendered;
+        var row = -1;
+        var card = 0;
+        var cardID;
+        for (let index = 0; index < data.length; index++) {
+          if ((index + 1) % 3 == 1 % 3) {
+            // Si es el primero y hay que agregar un row
+            row++;
+            card = 0;
+            document.getElementById("render").innerHTML += rawHTML;
+            document.getElementById("row").id = "row" + row;
+          } else {
+            // Si es cualquier otro menos el primero
+            card++;
+          }
+          document.getElementById("row" + row).innerHTML += cardHTML;
+          cardID = row * 3 + card + 1;
+
+          document.getElementById("card").id = "card" + cardID;
+
+          document.getElementById("link").href =
+            "producto.html?" + data[cardID - 1].id;
+          document.getElementById("link").id = "link" + cardID;
+
+          document.getElementById("foto").src =
+            "fotos/" + data[cardID - 1].id + ".jpg";
+          document.getElementById("foto").id = "foto" + cardID;
+
+          document.getElementById("sabor").innerHTML = data[cardID - 1].titulo;
+          document.getElementById("sabor").id = "sabor" + cardID;
+
+          document.getElementById("pie").innerHTML = data[cardID - 1].pie;
+          document.getElementById("pie").id = "pie" + cardID;
+
+          // Remove the hidden state of all tags
+          var elements = document.querySelectorAll("*");
+          elements.forEach(function (element) {
+            element.removeAttribute("hidden");
+          });
+        }
+      }
+    </script>
   </body>
 </html>

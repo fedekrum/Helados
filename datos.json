@@ -1,38 +1,47 @@
 {
   "crema_americana": {
     "titulo":"Crema Americana",
-    "pie":"La crema base de muchisimos helado. Fundamental para acompañar con frutas frescas, para combinar con chocolate."
+    "pie":"La crema base de muchisimos helado. Fundamental para acompañar con frutas frescas, para combinar con chocolate.",
+    "active":false
   },
   "vainilla": {
     "titulo":"Vainilla",
-    "pie":"El helado de vainilla es un clásico atemporal que nunca decepciona."
+    "pie":"El helado de vainilla es un clásico atemporal que nunca decepciona.",
+    "active":true
   },
   "chocolate": {
     "titulo":"Chocolate",
-    "pie":"El helado de chocolate es un verdadero sueño hecho realidad para los amantes del cacao."
+    "pie":"El helado de chocolate es un verdadero sueño hecho realidad para los amantes del cacao.",
+    "active":true
   },
   "frutilla": {
     "titulo":"Frutilla",
-    "pie":"Las frutillas frescas hacen que esta receta de helado explote de sabor."
+    "pie":"Las frutillas frescas hacen que esta receta de helado explote de sabor.",
+    "active":true
   },
   "naranja": {
     "titulo":"Naranja",
-    "pie":"El helado de naranja es como una pequeña dosis de Valencia en cada cucharada."
+    "pie":"El helado de naranja es como una pequeña dosis de Valencia en cada cucharada.",
+    "active":true
   },
   "limon": {
     "titulo":"Limon",
-    "pie":"Con su sabor dulce y ácido, es perfecto para refrescar los días de verano."
+    "pie":"Con su sabor dulce y ácido, es perfecto para refrescar los días de verano.",
+    "active":true
   },
   "tramontana": {
     "titulo":"Tramontana",
-    "pie":"Un clásico argentino que te hace visualizar el obelisco con la primera cucharada"
+    "pie":"Un clásico argentino que te hace visualizar el obelisco con la primera cucharada",
+    "active":true
   },
   "cerezas": {
     "titulo":"Cerezas",
-    "pie":"Que lo pario !! Que manera de comer este sabor de chico."
+    "pie":"Que lo pario !! Que manera de comer este sabor de chico.",
+    "active":true
   },
   "banana": {
     "titulo":"Banana",
-    "pie":"La primera receta que me da ChatGPT que quedo genial despues de unos pequeños toques"
+    "pie":"La primera receta que me da ChatGPT que quedo genial despues de unos pequeños toques",
+    "active":true
   }
 }
