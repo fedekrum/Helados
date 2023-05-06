@@ -100,10 +100,15 @@
       document.getElementById("foto").setAttribute("src", foto);
 
       function reqListenerReceta() {
-        // aca remplazar la receta en el dom
-        document.getElementById("receta").innerHTML = this.responseText;
+        if (reqReceta.status === 200) {
+          // aca remplazar la receta en el dom
+          document.getElementById("receta").innerHTML = this.responseText;
+          //console.log(this.responseText);
+        } else {
+          document.getElementById("receta").innerHTML =
+            "Esta receta aún no esta disponible.";
+        }
         updateRefreshTags();
-        //console.log(this.responseText);
       }
 
       const reqReceta = new XMLHttpRequest();
