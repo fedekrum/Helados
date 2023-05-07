@@ -29,7 +29,7 @@
       </div>
     </header>
     <div id="render" class="container py-5" hidden="hidden">
-      <div id="row" class="row row-eq-height mb-3">
+      <div id="row" class="row mb-3">
         <div id="card" class="col-md-4">
           <div class="card">
             <a id="link" href="">
@@ -40,6 +40,7 @@
               <p id="pie" class="card-text"></p>
             </div>
           </div>
+          <p></p>
         </div>
       </div>
     </div>
@@ -115,6 +116,39 @@
             element.removeAttribute("hidden");
           });
         }
+      }
+
+      //
+      window.addEventListener("load", equalizeCardHeight);
+      window.addEventListener("resize", equalizeCardHeight);
+
+      function equalizeCardHeight() {
+        var container = document.getElementById("render");
+        var rows = container.querySelectorAll(".row");
+
+        rows.forEach(function (row) {
+          var cards = Array.from(row.querySelectorAll(".card"));
+
+          // Reset card heights
+          cards.forEach(function (card) {
+            card.style.height = "";
+          });
+
+          var maxHeight = 0;
+
+          // Calculate and set the maximum height for cards in the row
+          cards.forEach(function (card) {
+            var cardHeight = card.offsetHeight;
+            if (cardHeight > maxHeight) {
+              maxHeight = cardHeight;
+            }
+          });
+
+          // Set equal height for all cards in the row
+          cards.forEach(function (card) {
+            card.style.height = maxHeight + "px";
+          });
+        });
       }
     </script>
   </body>
