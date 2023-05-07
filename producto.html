@@ -18,13 +18,18 @@
         align-items: center;
       }
     </style>
-    <meta property="og:image" content="/Helados/fotos/banana.jpg" />
-    <meta property="og:title" content="Helado de Banana" />
     <meta
+      id="ogimage"
+      property="og:image"
+      content="/Helados/fotos/banana.jpg"
+    />
+    <meta id="ogtitle" property="og:title" content="Helado de Banana" />
+    <meta
+      id="ogdescription"
       property="og:description"
       content="Las frutillas frescas hacen que esta receta de helado explote de sabor."
     />
-    <meta property="og:url" content="/Helados/banana.html" />
+    <meta id="ogurl" property="og:url" content="/Helados/banana.html" />
   </head>
 
   <body>
@@ -99,6 +104,12 @@
       sabor = getParam();
       foto = "fotos/" + sabor + ".jpg";
       document.getElementById("foto").setAttribute("src", foto);
+      document.getElementById("ogimage").setAttribute("content", foto);
+      document.getElementById("ogtitle").setAttribute("content", sabor);
+      document.getElementById("ogdescription").setAttribute("content", "xxx");
+      document
+        .getElementById("ogurl")
+        .setAttribute("content", "./producto.html?" + sabor);
 
       // ----- Levanta la receta basado en el nombre
       function reqListenerReceta() {
