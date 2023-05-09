@@ -116,7 +116,12 @@
             element.removeAttribute("hidden");
           });
         }
+      }
 
+      //
+      window.addEventListener("load", equalizeCardHeight);
+      window.addEventListener("resize", equalizeCardHeight);
+      window.addEventListener("load", function () {
         // Find all the img elements that failed to load
         document.querySelectorAll("img").forEach((img) => {
           if (img.naturalWidth === 0) {
@@ -124,11 +129,7 @@
             img.src = "fotos/any.jpg";
           }
         });
-      }
-
-      //
-      window.addEventListener("load", equalizeCardHeight);
-      window.addEventListener("resize", equalizeCardHeight);
+      });
 
       function equalizeCardHeight() {
         var container = document.getElementById("render");
