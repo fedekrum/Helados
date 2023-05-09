@@ -116,6 +116,14 @@
             element.removeAttribute("hidden");
           });
         }
+
+        // Find all the img elements that failed to load
+        document.querySelectorAll("img").forEach((img) => {
+          if (img.naturalWidth === 0) {
+            // Replace the src attribute with the default image
+            img.src = "fotos/any.jpg";
+          }
+        });
       }
 
       //

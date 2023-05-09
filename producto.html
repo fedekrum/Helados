@@ -161,6 +161,13 @@
             refreshTag.textContent = (defvalue * factor).toFixed(2);
           }
         }
+        // Find all the img elements that failed to load
+        document.querySelectorAll("img").forEach((img) => {
+          if (img.naturalWidth === 0) {
+            // Replace the src attribute with the default image
+            img.src = "fotos/any.jpg";
+          }
+        });
       }
 
       // ----- Esta pendiente de un cambio en el factor
