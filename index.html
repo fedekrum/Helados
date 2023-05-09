@@ -121,15 +121,6 @@
       //
       window.addEventListener("load", equalizeCardHeight);
       window.addEventListener("resize", equalizeCardHeight);
-      window.addEventListener("load", function () {
-        // Find all the img elements that failed to load
-        document.querySelectorAll("img").forEach((img) => {
-          if (img.naturalWidth === 0) {
-            // Replace the src attribute with the default image
-            img.src = "fotos/any.jpg";
-          }
-        });
-      });
 
       function equalizeCardHeight() {
         var container = document.getElementById("render");
