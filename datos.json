@@ -2,17 +2,17 @@
   "crema_americana": {
     "titulo":"Crema Americana",
     "pie":"La crema base de muchos sabores. Para acompañar con frutas o con chispas de chocolate.",
-    "active":true
+    "active":false
   },
   "vainilla": {
     "titulo":"Vainilla",
     "pie":"El helado de vainilla es un clásico atemporal que nunca decepciona.",
-    "active":true
+    "active":false
   },
   "chocolate": {
     "titulo":"Chocolate",
     "pie":"Un verdadero sueño hecho realidad para los amantes del cacao.",
-    "active":true
+    "active":false
   },
   "frutilla": {
     "titulo":"Frutilla",
@@ -27,21 +27,26 @@
   "limon": {
     "titulo":"Limon",
     "pie":"Con su sabor dulce y ácido, es perfecto para refrescar los días de verano.",
-    "active":true
+    "active":false
   },
   "tramontana": {
     "titulo":"Tramontana",
     "pie":"Un clásico argentino que te hace visualizar el obelisco con la primer cucharada",
-    "active":true
-  },
-  "cerezas": {
-    "titulo":"Cerezas",
-    "pie":"Que lo pario !! Que manera de comer este sabor de chico.",
-    "active":true
+    "active":false
   },
   "banana_o_banana_split": {
     "titulo":"Banana o Banana-Split",
     "pie":"La primera receta que me da ChatGPT que quedo genial despues de unos pequeños toques",
     "active":true
+  },
+  "coco": {
+    "titulo":"Coco",
+    "pie":"Desafio centro americano !!.",
+    "active":true
+  },
+  "cerezas": {
+    "titulo":"Cerezas",
+    "pie":"Que lo pario !! Que manera de comer este sabor de chico.",
+    "active":false
   }
 }
