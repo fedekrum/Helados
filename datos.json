@@ -53,5 +53,10 @@
     "titulo":"Cerezas",
     "pie":"Que lo pario !! Que manera de comer este sabor de chico.",
     "active":false
+  },
+  "H": {
+    "titulo":"H",
+    "pie":"A la mezcladora.",
+    "active":true
   }
 }
