@@ -62,7 +62,7 @@
     </div>
     <footer class="footer sticky-footer bg-secondary py-3">
       <div class="container mb-0 d-inline-block">
-        <form id="factorForm" class="d-inline-block">
+        <div id="factorContainer" class="d-inline-block">
           <span class="d-inline-block">Factor:</span>
           <input
             type="text"
@@ -72,7 +72,7 @@
             id="factor"
             value="1"
           />
-        </form>
+        </div>
         <p
           class="text-white mb-0 d-inline-block float-end"
           style="transform: translateY(5px)"
@@ -172,15 +172,20 @@
 
       // ----- Esta pendiente de un cambio en el factor
       const factorInput = document.getElementById("factor");
+
+      const storedFactor = localStorage.getItem("factor_" + sabor);
+      if (storedFactor !== null && !isNaN(parseFloat(storedFactor))) {
+        factor = parseFloat(storedFactor);
+        factorInput.value = factor;
+        updateRefreshTags();
+      }
+
       factorInput.addEventListener("input", (event) => {
         event.target.value = event.target.value.replace(/[^0-9.,]/g, "");
         factor = parseFloat(event.target.value.replace(/,/g, "."));
         if (isNaN(factor)) factor = 1;
+        localStorage.setItem("factor_" + sabor, factor);
         updateRefreshTags();
-      });
-
-      document.getElementById("factorForm").addEventListener("submit", (event) => {
-        event.preventDefault();
       });
     </script>
   </body>
