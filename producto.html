@@ -171,7 +171,7 @@
       }
 
       // ----- Esta pendiente de un cambio en el factor
-      document.getElementById("factor").oninput = () => {
+      document.getElementById("factor").oninput = (event) => {
         factor = parseFloat(event.target.value);
         if (isNaN(factor)) factor = 1;
         updateRefreshTags();
