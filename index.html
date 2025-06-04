@@ -100,9 +100,12 @@
             "producto.html?" + data[cardID - 1].id;
           document.getElementById("link").id = "link" + cardID;
 
-          document.getElementById("foto").src =
-            "fotos/" + data[cardID - 1].id + ".jpg";
-          document.getElementById("foto").id = "foto" + cardID;
+          var fotoElem = document.getElementById("foto");
+          fotoElem.src = "fotos/" + data[cardID - 1].id + ".jpg";
+          fotoElem.onerror = function () {
+            this.src = "fotos/any.jpg";
+          };
+          fotoElem.id = "foto" + cardID;
 
           document.getElementById("sabor").innerHTML = data[cardID - 1].titulo;
           document.getElementById("sabor").id = "sabor" + cardID;
