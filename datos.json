@@ -58,5 +58,10 @@
     "titulo":"H",
     "pie":"A la mezcladora.",
     "active":true
+  },
+  "h2": {
+    "titulo":"H",
+    "pie":"A la mezcladora.",
+    "active":true
   }
 }
