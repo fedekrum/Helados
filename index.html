@@ -113,15 +113,13 @@
           var fotoElem = currentCard.querySelector("#foto");
           fotoElem.id = "foto" + cardID;
           
-          // Pre-cargamos la imagen fuera del DOM para no disparar eventos cruzados
-          let imgObj = new Image();
-          imgObj.onload = function() {
-            fotoElem.src = this.src;
+          // Definimos el evento sobre el elemento directamente (no tiene el problema de var closure porque 'this' se enlaza al DOM node)
+          fotoElem.onerror = function () {
+            this.onerror = null; // Evita bucle infinito si any.jpg no existe
+            this.src = "fotos/any.jpg";
           };
-          imgObj.onerror = function() {
-            fotoElem.src = "fotos/any.jpg";
-          };
-          imgObj.src = "fotos/" + data[cardID - 1].id + ".jpg";
+          // Luego le damos la dirección
+          fotoElem.src = "fotos/" + data[cardID - 1].id + ".jpg";
 
           var saborElem = currentCard.querySelector("#sabor");
           saborElem.innerHTML = data[cardID - 1].titulo;
