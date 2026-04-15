@@ -76,48 +76,59 @@
 
       // Renderiza la pagina
       function renderPage(data) {
-        var rendered;
         var row = -1;
         var card = 0;
         var cardID;
+        var renderContainer = document.getElementById("render");
+
         for (let index = 0; index < data.length; index++) {
           if ((index + 1) % 3 == 1 % 3) {
-            // Si es el primero y hay que agregar un row
             row++;
             card = 0;
-            document.getElementById("render").innerHTML += rawHTML;
-            document.getElementById("row").id = "row" + row;
+            // Usamos insertAdjacentHTML para no destruir lo anterior
+            renderContainer.insertAdjacentHTML('beforeend', rawHTML);
+            // Buscamos el último row insertado para darle ID
+            var lastRow = renderContainer.lastElementChild;
+            lastRow.id = "row" + row;
           } else {
-            // Si es cualquier otro menos el primero
             card++;
           }
-          document.getElementById("row" + row).innerHTML += cardHTML;
+
+          var currentRow = document.getElementById("row" + row);
+          currentRow.insertAdjacentHTML('beforeend', cardHTML);
+          
           cardID = row * 3 + card + 1;
+          
+          // Buscamos los elementos dentro del contexto de la fila actual para evitar colisiones de ID
+          var currentCard = currentRow.lastElementChild;
+          currentCard.id = "card" + cardID;
 
-          document.getElementById("card").id = "card" + cardID;
+          var linkElem = currentCard.querySelector("#link");
+          linkElem.href = "producto.html?" + data[cardID - 1].id;
+          linkElem.id = "link" + cardID;
 
-          document.getElementById("link").href =
-            "producto.html?" + data[cardID - 1].id;
-          document.getElementById("link").id = "link" + cardID;
-
-          var fotoElem = document.getElementById("foto");
-          fotoElem.src = "fotos/" + data[cardID - 1].id + ".jpg";
+          var fotoElem = currentCard.querySelector("#foto");
+          fotoElem.id = "foto" + cardID;
+          
+          // 1. DEFINIMOS EL ONERROR ANTES
           fotoElem.onerror = function () {
+            this.onerror = null; // Evita bucle infinito si any.jpg no existe
             this.src = "fotos/any.jpg";
           };
-          fotoElem.id = "foto" + cardID;
+          
+          // 2. LUEGO DEFINIMOS EL SRC
+          fotoElem.src = "fotos/" + data[cardID - 1].id + ".jpg";
 
-          document.getElementById("sabor").innerHTML = data[cardID - 1].titulo;
-          document.getElementById("sabor").id = "sabor" + cardID;
+          var saborElem = currentCard.querySelector("#sabor");
+          saborElem.innerHTML = data[cardID - 1].titulo;
+          saborElem.id = "sabor" + cardID;
 
-          document.getElementById("pie").innerHTML = data[cardID - 1].pie;
-          document.getElementById("pie").id = "pie" + cardID;
+          var pieElem = currentCard.querySelector("#pie");
+          pieElem.innerHTML = data[cardID - 1].pie;
+          pieElem.id = "pie" + cardID;
 
-          // Remove the hidden state of all tags
-          var elements = document.querySelectorAll("*");
-          elements.forEach(function (element) {
-            element.removeAttribute("hidden");
-          });
+          // Mostrar el contenedor
+          renderContainer.removeAttribute("hidden");
         }
       }
 
