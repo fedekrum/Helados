@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Ice Cream Recipes</title>
+    <title>Welcome to Helados</title>
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-5">Ice Cream Recipes</h1>
-        <div id="recipes" class="row"></div>
-    </div>
-    <script>
-        fetch('datos.json')
-            .then(response => response.json())
-            .then(data => {
-                let recipesContainer = document.getElementById('recipes');
-                data.recipes.forEach(recipe => {
-                    let recipeCard = document.createElement('div');
-                    recipeCard.className = 'col-md-4';
-                    recipeCard.innerHTML = `
-                        <div class="card mb-4">
-                            <img src="${recipe.imageUrl}" class="card-img-top" alt="${recipe.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${recipe.name}</h5>
-                                <p class="card-text">${recipe.description}</p>
-                            </div>
-                        </div>
-                    `;
-                    recipesContainer.appendChild(recipeCard);
-                });
-            })
-            .catch(error => console.error('Error loading recipes:', error));
-    </script>
+    <h1>Welcome to Helados!</h1>
+    <p>Your go-to place for delicious ice cream and desserts.</p>
 </body>
 </html>
