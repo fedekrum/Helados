@@ -27,18 +27,14 @@
         overflow: hidden; /* clip the ribbon so only the portion over the image is visible */
       }
 
-      /* Ribbon centered at the top-right corner of the image container
-         We place its center at (left:100%, top:0) and then translate -50%,-50%
-         so the actual center lands exactly on the top-right corner.
-         Rotated 45deg to match the example. */
+      /* Ribbon base styles; exact position & sizing are calculated in JS */
       .ribbon {
         position: absolute;
-        left: 100%;
-        top: 0%;
+        left: 0;
+        top: 0;
         background: rgba(220, 53, 69, 0.98); /* red */
         color: white;
-        padding: 10px 60px; /* generous size so the visible stripe is thick like the example */
-        transform: translate(-50%, -50%) rotate(45deg);
+        padding: 10px 60px; /* fallback */
         transform-origin: center center;
         font-weight: 800;
         font-size: 1.05rem;
@@ -46,6 +42,7 @@
         z-index: 10;
         pointer-events: none;
         white-space: nowrap;
+        box-sizing: border-box;
       }
 
       .ribbon[hidden] {
@@ -57,11 +54,11 @@
         display: block;
         width: 100%;
         height: auto;
+        object-fit: cover;
       }
 
-      /* Optional: make the ribbon text a bit larger on wide screens */
       @media (min-width: 992px) {
-        .ribbon { font-size: 1.25rem; padding: 12px 80px; }
+        .ribbon { font-size: 1.25rem; }
       }
     </style>
   </head>
@@ -82,9 +79,6 @@
         <div id="card" class="col-md-4">
           <div class="card">
             <a id="link" href="">
-              <!-- Ribbon INSIDE the anchor so it is clipped to the photo. The ribbon's center
-                   is placed at the top-right corner of the photo using left:100% top:0
-                   and translate(-50%,-50%). -->
               <div class="ribbon" hidden aria-hidden="true">¡Receta en progreso!</div>
               <img id="foto" src="" class="card-img-top" alt="..." />
             </a>
@@ -112,6 +106,34 @@
       
       var rawHTML = document.getElementById("row").outerHTML;
       document.getElementById("row").remove();
+
+      // Reposition helper used on resize to recalc all visible ribbons
+      function repositionAllRibbons() {
+        document.querySelectorAll('.ribbon').forEach(function(r) {
+          if (r.hasAttribute('hidden')) return;
+          repositionRibbon(r);
+        });
+      }
+
+      function repositionRibbon(ribbonElem) {
+        if (!ribbonElem) return;
+        var anchor = ribbonElem.parentElement; // the <a> that wraps the image
+        if (!anchor) return;
+        var w = anchor.clientWidth;
+        var h = anchor.clientHeight;
+        // desired center relative to the anchor's top-left:
+        // left = 1.5 * width  (right + width/2)
+        // top  = -0.5 * height (above by half height)
+        var cx = w * 1.5;
+        var cy = -h * 0.5;
+        ribbonElem.style.left = cx + 'px';
+        ribbonElem.style.top  = cy + 'px';
+        ribbonElem.style.transform = 'translate(-50%,-50%) rotate(-45deg)';
+        var padX = Math.max(8, Math.round(w * 0.55));
+        var padY = Math.max(5, Math.round(Math.min(w,h) * 0.11));
+        ribbonElem.style.padding = padY + 'px ' + padX + 'px';
+        ribbonElem.style.maxWidth = Math.round(w * 1.6) + 'px';
+      }
 
       // ----- Levanta los datos de los sabores disponibles
       function reqListenerSabores() {
@@ -188,7 +210,18 @@
           var ribbonElem = currentCard.querySelector(".ribbon");
           try {
             if (data[cardID - 1].inProgres) {
-              ribbonElem.removeAttribute("hidden");
+              // show and position when image dimensions are available
+              var showRibbon = function() {
+                ribbonElem.removeAttribute('hidden');
+                repositionRibbon(ribbonElem);
+              };
+
+              if (fotoElem.complete && fotoElem.naturalWidth !== 0) {
+                showRibbon();
+              } else {
+                fotoElem.addEventListener('load', showRibbon, { once: true });
+                // if image fails and onerror sets any.jpg, load will fire for that too
+              }
             } else {
               ribbonElem.setAttribute("hidden", "hidden");
             }
@@ -197,11 +230,15 @@
             if (ribbonElem) ribbonElem.setAttribute("hidden", "hidden");
           }
         }
+
+        // After rendering all cards, ensure ribbons reposition on resize
+        window.removeEventListener('resize', repositionAllRibbons);
+        window.addEventListener('resize', repositionAllRibbons);
       }
 
       //
-      window.addEventListener("load", equalizeCardHeight);
-      window.addEventListener("resize", equalizeCardHeight);
+      window.addEventListener("load", function() { equalizeCardHeight(); repositionAllRibbons(); });
+      window.addEventListener("resize", function() { equalizeCardHeight(); /* repositionAllRibbons called in renderPage */ });
 
       function equalizeCardHeight() {
         var container = document.getElementById("render");
