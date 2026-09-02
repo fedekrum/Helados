@@ -15,43 +15,53 @@
         align-items: center;
       }
 
-      /* Ribbon overlay for "Receta en progreso" */
+      /* Keep card relative for positioning */
       .card {
-        position: relative; /* keep relative for possible future absolute elements */
+        position: relative;
       }
 
-      /* Anchor acts as the image container so we can clip the ribbon to the photo */
+      /* Anchor is the image container and clips the ribbon */
       .card a {
         position: relative;
         display: block;
-        overflow: hidden; /* ensure ribbon stays within the photo area */
+        overflow: hidden; /* clip the ribbon so only the portion over the image is visible */
       }
 
+      /* Ribbon centered at the top-right corner of the image container
+         We place its center at (left:100%, top:0) and then translate -50%,-50%
+         so the actual center lands exactly on the top-right corner.
+         Rotated 45deg to match the example. */
       .ribbon {
         position: absolute;
-        top: 8px;
-        right: 8px;
-        background: rgba(220, 53, 69, 0.95); /* bootstrap danger color */
+        left: 100%;
+        top: 0%;
+        background: rgba(220, 53, 69, 0.98); /* red */
         color: white;
-        padding: 6px 34px;
-        transform: rotate(45deg);
-        transform-origin: top right;
-        font-weight: 700;
-        font-size: 0.85rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        padding: 10px 60px; /* generous size so the visible stripe is thick like the example */
+        transform: translate(-50%, -50%) rotate(45deg);
+        transform-origin: center center;
+        font-weight: 800;
+        font-size: 1.05rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
         z-index: 10;
         pointer-events: none;
         white-space: nowrap;
       }
 
-      /* Hidden by default when not applicable */
       .ribbon[hidden] {
         display: none !important;
       }
 
-      /* Make sure the image behaves as a block */
+      /* Ensure image fills available width and keeps its aspect ratio */
       .card-img-top {
         display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* Optional: make the ribbon text a bit larger on wide screens */
+      @media (min-width: 992px) {
+        .ribbon { font-size: 1.25rem; padding: 12px 80px; }
       }
     </style>
   </head>
@@ -72,8 +82,10 @@
         <div id="card" class="col-md-4">
           <div class="card">
             <a id="link" href="">
-              <!-- Ribbon overlay moved INSIDE the anchor so it is clipped to the photo -->
-              <div class="ribbon" hidden>¡Receta en progreso!</div>
+              <!-- Ribbon INSIDE the anchor so it is clipped to the photo. The ribbon's center
+                   is placed at the top-right corner of the photo using left:100% top:0
+                   and translate(-50%,-50%). -->
+              <div class="ribbon" hidden aria-hidden="true">¡Receta en progreso!</div>
               <img id="foto" src="" class="card-img-top" alt="..." />
             </a>
             <div class="card-body">
