@@ -3,19 +3,19 @@
     "titulo": "Crema Americana",
     "pie": "La crema base de muchos sabores. Para acompañar con frutas o con chispas de chocolate.",
     "active": false,
-    "inProgres": false
+    "inProgres": true
   },
   "vainilla": {
     "titulo": "Vainilla",
     "pie": "El helado de vainilla es un clásico atemporal que nunca decepciona.",
     "active": false,
-    "inProgres": false
+    "inProgres": true
   },
   "chocolate": {
     "titulo": "Chocolate",
     "pie": "Un verdadero sueño hecho realidad para los amantes del cacao.",
     "active": false,
-    "inProgres": false
+    "inProgres": true
   },
   "frutilla": {
     "titulo": "Frutilla",
@@ -27,19 +27,19 @@
     "titulo": "Naranja",
     "pie": "Una pequeña dosis de Valencia en cada cucharada.",
     "active": true,
-    "inProgres": false
+    "inProgres": true
   },
   "limon": {
     "titulo": "Limon",
     "pie": "Con su sabor dulce y ácido, es perfecto para refrescar los días de verano.",
     "active": false,
-    "inProgres": false
+    "inProgres": true
   },
   "tramontana": {
     "titulo": "Tramontana",
     "pie": "Un clásico argentino que te hace visualizar el obelisco con la primer cucharada",
     "active": false,
-    "inProgres": false
+    "inProgres": true
   },
   "banana_o_banana_split": {
     "titulo": "Banana o Banana-Split",
@@ -57,24 +57,24 @@
     "titulo": "Sambayón",
     "pie": "A puro huevo.",
     "active": true,
-    "inProgres": false
+    "inProgres": true
   },
   "cerezas": {
     "titulo": "Cerezas",
     "pie": "Que lo pario !! Que manera de comer este sabor de chico.",
     "active": false,
-    "inProgres": false
+    "inProgres": true
   },
   "h": {
     "titulo": "H",
     "pie": "A la mezcladora.",
-    "active": true,
+    "active": false,
     "inProgres": false
   },
   "h2": {
     "titulo": "H2Merc",
     "pie": "A la mezcladora.",
-    "active": true,
+    "active": false,
     "inProgres": false
   }
 }
