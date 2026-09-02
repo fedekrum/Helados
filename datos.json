@@ -8,7 +8,7 @@
   "vainilla": {
     "titulo": "Vainilla",
     "pie": "El helado de vainilla es un clásico atemporal que nunca decepciona.",
-    "active": false,
+    "active": true,
     "inProgres": true
   },
   "chocolate": {
