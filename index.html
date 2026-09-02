@@ -17,20 +17,27 @@
 
       /* Ribbon overlay for "Receta en progreso" */
       .card {
-        position: relative; /* needed for absolute positioning of the ribbon */
-        overflow: visible;
+        position: relative; /* keep relative for possible future absolute elements */
+      }
+
+      /* Anchor acts as the image container so we can clip the ribbon to the photo */
+      .card a {
+        position: relative;
+        display: block;
+        overflow: hidden; /* ensure ribbon stays within the photo area */
       }
 
       .ribbon {
         position: absolute;
-        top: 12px;
-        right: -40px;
+        top: 8px;
+        right: 8px;
         background: rgba(220, 53, 69, 0.95); /* bootstrap danger color */
         color: white;
-        padding: 6px 44px;
+        padding: 6px 34px;
         transform: rotate(45deg);
+        transform-origin: top right;
         font-weight: 700;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         z-index: 10;
         pointer-events: none;
@@ -42,7 +49,7 @@
         display: none !important;
       }
 
-      /* Make sure the image doesn't get covered by the ribbon when rotated */
+      /* Make sure the image behaves as a block */
       .card-img-top {
         display: block;
       }
@@ -64,10 +71,9 @@
       <div id="row" class="row mb-3">
         <div id="card" class="col-md-4">
           <div class="card">
-            <!-- Ribbon overlay: will be shown when datos.json indica inProgres = true -->
-            <div class="ribbon" hidden>¡Receta en progreso!</div>
-
             <a id="link" href="">
+              <!-- Ribbon overlay moved INSIDE the anchor so it is clipped to the photo -->
+              <div class="ribbon" hidden>¡Receta en progreso!</div>
               <img id="foto" src="" class="card-img-top" alt="..." />
             </a>
             <div class="card-body">
