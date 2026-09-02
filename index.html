@@ -68,7 +68,6 @@
             return { id: key, ...value };
           })
           .filter((item) => item.active === true);
-        data = Object.values(data);
         renderPage(data);
         //console.log(data);
       }
