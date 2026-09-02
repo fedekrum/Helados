@@ -1,67 +1,80 @@
 {
   "crema_americana": {
-    "titulo":"Crema Americana",
-    "pie":"La crema base de muchos sabores. Para acompañar con frutas o con chispas de chocolate.",
-    "active":false
+    "titulo": "Crema Americana",
+    "pie": "La crema base de muchos sabores. Para acompañar con frutas o con chispas de chocolate.",
+    "active": false,
+    "inProgres": false
   },
   "vainilla": {
-    "titulo":"Vainilla",
-    "pie":"El helado de vainilla es un clásico atemporal que nunca decepciona.",
-    "active":false
+    "titulo": "Vainilla",
+    "pie": "El helado de vainilla es un clásico atemporal que nunca decepciona.",
+    "active": false,
+    "inProgres": false
   },
   "chocolate": {
-    "titulo":"Chocolate",
-    "pie":"Un verdadero sueño hecho realidad para los amantes del cacao.",
-    "active":false
+    "titulo": "Chocolate",
+    "pie": "Un verdadero sueño hecho realidad para los amantes del cacao.",
+    "active": false,
+    "inProgres": false
   },
   "frutilla": {
-    "titulo":"Frutilla",
-    "pie":"Las frutillas frescas hacen que esta receta de helado explote de sabor.",
-    "active":true
+    "titulo": "Frutilla",
+    "pie": "Las frutillas frescas hacen que esta receta de helado explote de sabor.",
+    "active": true,
+    "inProgres": false
   },
   "naranja": {
-    "titulo":"Naranja",
-    "pie":"Una pequeña dosis de Valencia en cada cucharada.",
-    "active":true
+    "titulo": "Naranja",
+    "pie": "Una pequeña dosis de Valencia en cada cucharada.",
+    "active": true,
+    "inProgres": false
   },
   "limon": {
-    "titulo":"Limon",
-    "pie":"Con su sabor dulce y ácido, es perfecto para refrescar los días de verano.",
-    "active":false
+    "titulo": "Limon",
+    "pie": "Con su sabor dulce y ácido, es perfecto para refrescar los días de verano.",
+    "active": false,
+    "inProgres": false
   },
   "tramontana": {
-    "titulo":"Tramontana",
-    "pie":"Un clásico argentino que te hace visualizar el obelisco con la primer cucharada",
-    "active":false
+    "titulo": "Tramontana",
+    "pie": "Un clásico argentino que te hace visualizar el obelisco con la primer cucharada",
+    "active": false,
+    "inProgres": false
   },
   "banana_o_banana_split": {
-    "titulo":"Banana o Banana-Split",
-    "pie":"La primera receta que me da ChatGPT que quedo genial despues de unos pequeños toques",
-    "active":true
+    "titulo": "Banana o Banana-Split",
+    "pie": "La primera receta que me da ChatGPT que quedo genial despues de unos pequeños toques",
+    "active": true,
+    "inProgres": false
   },
   "coco": {
-    "titulo":"Coco",
-    "pie":"Desafio centro americano !!.",
-    "active":true
+    "titulo": "Coco",
+    "pie": "Desafio centro americano !!.",
+    "active": true,
+    "inProgres": false
   },
   "sambayon": {
-    "titulo":"Sambayón",
-    "pie":"A puro huevo.",
-    "active":true
+    "titulo": "Sambayón",
+    "pie": "A puro huevo.",
+    "active": true,
+    "inProgres": false
   },
   "cerezas": {
-    "titulo":"Cerezas",
-    "pie":"Que lo pario !! Que manera de comer este sabor de chico.",
-    "active":false
+    "titulo": "Cerezas",
+    "pie": "Que lo pario !! Que manera de comer este sabor de chico.",
+    "active": false,
+    "inProgres": false
   },
   "h": {
-    "titulo":"H",
-    "pie":"A la mezcladora.",
-    "active":true
+    "titulo": "H",
+    "pie": "A la mezcladora.",
+    "active": true,
+    "inProgres": false
   },
   "h2": {
-    "titulo":"H2Merc",
-    "pie":"A la mezcladora.",
-    "active":true
+    "titulo": "H2Merc",
+    "pie": "A la mezcladora.",
+    "active": true,
+    "inProgres": false
   }
 }
